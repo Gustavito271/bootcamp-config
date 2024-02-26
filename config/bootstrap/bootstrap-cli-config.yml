@@ -63,10 +63,22 @@ bootstrap:
                 idp-source-name: bootcamp-17-test-admin
               - cdf-group: cdf:all:owner
                 idp-source-id: d8e85612-ae91-4458-bd43-17419f90e388 # for the AAD Group to be matched to cdf-group
-                idp-source-name: bootcamp-01-test-all-owner # i.e. bootcamp-01-test-all-owner
+                idp-source-name: bootcamp-17-test-all-owner # i.e. bootcamp-01-test-all-owner
               - cdf-group: cdf:all:read
                 idp-source-id: fd24e8e7-032d-45fd-b091-3f47ce9f9c96 # for the AAD Group to be matched to cdf-group
                 idp-source-name: bootcamp-17-test-all-read # i.e. bootcamp-01-test-all-read
+
+        - cdf-project: cdf-bootcamp-17-prod # i.e. bootcamp-01-test
+          mappings:
+              - cdf-group: cdf:root
+                idp-source-id: daf6bc57-7269-46a1-a6d4-05325aa9f584
+                idp-source-name: bootcamp-17-prod-admin
+              - cdf-group: cdf:all:owner
+                idp-source-id: 94e62ae4-3160-4508-8c26-e3d02b9ff3fc # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-17-prod-all-owner # i.e. bootcamp-01-test-all-owner
+              - cdf-group: cdf:all:read
+                idp-source-id: af67a0f6-42ed-44ed-b469-9b1f823d003a # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-17-prod-all-read # i.e. bootcamp-01-test-all-read
 
         - cdf-project: cdf-bootcamp-17-prod # i.e. bootcamp-01-test
           mappings:
@@ -83,15 +95,26 @@ bootstrap:
     namespaces:
         # Typical config will have a namespace for data sources ("src") and a namespace for use cases ("uc")
         - ns-name: src
-          description: DSources used for data extraction (Ice Cream Factory) # HINT
+          description: Sources used for data extraction
+          # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
 
-          # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
               - node-name: src:001:sap
                 description: Source 01 data from SAP
               - node-name: src:002:opcua
                 description: Source 02 data from opcua
-        # HINT: Add another namespace below
+            # Typical config will have separate namespace by data source ("src") and use cases ("uc")
+              - ns-name: uc
+                description: Use cases representing the data/products
+
+              # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
+                ns-nodes:
+                    - node-name: uc:001:oee
+                      description: Use case 001 Over all Equipment effectiveness
+                      shared-access:
+                          read:
+                              - node-name: src:001:sap
+                              - node-name: src:002:opcu
 
         - ns-name: uc
           description: Use cases representing the data/products
