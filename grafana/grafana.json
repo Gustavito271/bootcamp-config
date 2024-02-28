@@ -33,15 +33,19 @@
           },
           "mappings": [],
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": null
               },
               {
-                "color": "red",
-                "value": 80
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 90
               }
             ]
           }
@@ -521,14 +525,18 @@
           },
           "mappings": [],
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": null
               },
               {
-                "color": "red",
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
                 "value": 80
               }
             ]
@@ -1995,8 +2003,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2129,7 +2136,7 @@
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "oslo",
           "value": "oslo"
         },
@@ -2197,7 +2204,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "Pasteurization and Homogenization",
           "value": "2470063335943702"
         },
@@ -2265,6 +2272,6 @@
   "timezone": "browser",
   "title": "Bootcamp Dashboard",
   "uid": "bde5jpjdy0r9cf",
-  "version": 10,
+  "version": 11,
   "weekStart": ""
 }
