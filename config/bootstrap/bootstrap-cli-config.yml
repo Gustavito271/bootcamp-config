@@ -95,7 +95,6 @@ bootstrap:
     namespaces:
         - ns-name: src
           description: Sources used for data extraction
-          # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
 
           ns-nodes:
               - node-name: src:001:sap
